@@ -1,0 +1,70 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<!-- Back Button -->
+<button (click)="back()" class="back-btn">
+  <i class="fa fa-arrow-left"></i> Back
+</button>
+
+<table class="main-table" border="1">
+  <tr>
+    <td>
+      <table class="nested-table" border="2">
+        <tr>
+          <th><i class="fa fa-hashtag"></i> SN</th>
+          <th><i class="fa fa-question-circle"></i> Question</th>
+          <th><i class="fa fa-cogs"></i> Action</th>
+        </tr>
+        <tr *ngFor="let log of student.logs; let i=index">
+          <td>{{i+1}}</td>
+          <td>{{log.mcqBean.que}}</td>
+          <td>
+            <div *ngIf="log.submit==0">
+              <button (click)="load(i)" class="load-btn">
+                <i class="fa fa-upload"></i> Load
+              </button>
+            </div>
+            <div *ngIf="log.submit==1">
+              <span class="submitted"><i class="fa fa-check-circle"></i> Submitted</span>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td align="top">
+      <!-- No Question Selected Message -->
+      <div class="no-question" *ngIf="showIndex<0">
+        <i class="fa fa-exclamation-circle"></i> Please select a question
+      </div>
+
+      <!-- Question Display -->
+      <div *ngIf="showIndex>=0">
+        <div class="question-box">
+          <p><i class="fa fa-question-circle"></i> <strong>Question:</strong> {{student.logs[showIndex].mcqBean.que}}</p>
+          <p><i class="fa fa-list-ul"></i> <strong>Options:</strong></p>
+          <ul class="options-list">
+            <li><i class="fa fa-circle-dot"></i> <strong>A:</strong> {{student.logs[showIndex].mcqBean.optA}}</li>
+            <li><i class="fa fa-circle-dot"></i> <strong>B:</strong> {{student.logs[showIndex].mcqBean.optB}}</li>
+            <li><i class="fa fa-circle-dot"></i> <strong>C:</strong> {{student.logs[showIndex].mcqBean.optC}}</li>
+            <li><i class="fa fa-circle-dot"></i> <strong>D:</strong> {{student.logs[showIndex].mcqBean.optD}}</li>
+          </ul>
+
+          <!-- Answer Selection -->
+          <p><i class="fa fa-check-square"></i> <strong>Select Answer:</strong></p>
+          <select class="answer-select" [(ngModel)]="student.logs[showIndex].answer">
+            <option [value]="student.logs[showIndex].mcqBean.optA">A</option>
+            <option [value]="student.logs[showIndex].mcqBean.optB">B</option>
+            <option [value]="student.logs[showIndex].mcqBean.optC">C</option>
+            <option [value]="student.logs[showIndex].mcqBean.optD">D</option>
+          </select>
+
+          <!-- Submit Button -->
+          <button (click)="submit()" class="submit-btn">
+            <i class="fa fa-paper-plane"></i> Submit
+          </button>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,97 @@
+<div class="mcq-container">
+  <!-- Info Panel -->
+  <div class="info-panel">
+    <h2><i class="fa fa-info-circle"></i> Welcome to the MCQ Section</h2>
+    <p><i class="fa fa-lightbulb"></i> Manage your MCQs effortlessly with a clean and modern interface.</p>
+  </div>
+
+  <!-- Heading for Adding New MCQ -->
+  <h2 class="section-heading"><i class="fa fa-plus-circle"></i> Add New MCQ</h2>
+
+  <!-- MCQ Form -->
+  <form (ngSubmit)="addQuestion()" class="mcq-form">
+    <!-- Category Selection -->
+    <div class="form-group">
+      <label for="category"><i class="fa fa-tags"></i> Category:</label>
+      <select id="category" [(ngModel)]="newQuestion.category" name="category" required class="form-control">
+        <option value="" disabled>Choose a category for the question</option>
+        <option value="Java MCQ">Java MCQ</option>
+        <option value="Java GTO">Aptitude/Reasoning </option>
+        <option value="SQL MCQ">SQL MCQ</option>
+      </select>
+    </div>
+
+    <!-- Question Input -->
+    <div class="form-group">
+      <label for="que"><i class="fa fa-question"></i> Question:</label>
+      <input type="text" id="que" [(ngModel)]="newQuestion.que" name="que" required placeholder="Enter the question here" class="form-control">
+    </div>
+
+    <!-- Options Input -->
+    <div class="options-container">
+      <div class="form-group">
+        <label for="optA"><i class="fa fa-circle"></i> Option A:</label>
+        <input type="text" id="optA" [(ngModel)]="newQuestion.optA" name="optA" required placeholder="Option A text" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="optB"><i class="fa fa-circle"></i> Option B:</label>
+        <input type="text" id="optB" [(ngModel)]="newQuestion.optB" name="optB" required placeholder="Option B text" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="optC"><i class="fa fa-circle"></i> Option C:</label>
+        <input type="text" id="optC" [(ngModel)]="newQuestion.optC" name="optC" required placeholder="Option C text" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="optD"><i class="fa fa-circle"></i> Option D:</label>
+        <input type="text" id="optD" [(ngModel)]="newQuestion.optD" name="optD" required placeholder="Option D text" class="form-control">
+      </div>
+    </div>
+
+    <!-- Correct Answer Selection -->
+    <div class="form-group">
+      <label for="ans"><i class="fa fa-check-circle"></i> Correct Answer:</label>
+      <select [(ngModel)]="newQuestion.ans" name="ans" required placeholder="Select Correct Answer" class="form-control">
+        <option value="" disabled>Choose Correct Answer</option>
+        <option value="A">Option A</option>
+        <option value="B">Option B</option>
+        <option value="C">Option C</option>
+        <option value="D">Option D</option>
+      </select>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="submit-btn">
+      Add Question <i class="fa fa-plus-circle"></i>
+    </button>
+  </form>
+
+  <!-- Load MCQ Button -->
+  <button class="load-btn" (click)="load()">
+    <i class="fa fa-sync"></i> Load MCQs <i class="fa fa-arrow-circle-right"></i>
+  </button>
+
+  <!-- MCQ Table -->
+  <table class="question-table">
+    <thead>
+      <tr>
+        <th>SN</th>
+        <th>Question</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mcq of mcqs; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{mcq.que}}</td>
+        <td>
+          <button class="action-btn delete-btn" (click)="delete(mcq)">
+            <i class="fa fa-trash"></i> Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

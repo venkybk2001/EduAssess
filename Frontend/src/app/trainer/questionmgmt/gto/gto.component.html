@@ -1,0 +1,55 @@
+<div class="gto-container">
+    <!-- Welcome Section -->
+    <div class="gto-welcome">
+      <h1 class="welcome-title">👋 Welcome to the GTO Section!</h1>
+      <p class="welcome-text">
+        Test your coding knowledge by guessing the output of different code snippets. Add new questions, manage existing ones, and enhance learning with interactive challenges!
+      </p>
+    </div>
+  
+    <!-- Add GTO Question Form -->
+    <div class="card">
+      <h2 class="section-title">➕ Add New GTO Question</h2>
+      <form (ngSubmit)="addGtoQuestion()" class="gto-form">
+        <div class="form-group">
+          <label for="code">💻 Code:</label>
+          <textarea id="code" [(ngModel)]="newGto.code" name="code" rows="6" required class="form-input" placeholder="Enter code here..."></textarea>
+        </div>
+  
+        <div class="form-group">
+          <label for="output">📌 Expected Output:</label>
+          <textarea id="output" [(ngModel)]="newGto.output" name="output" rows="6" required class="form-input" placeholder="Enter expected output..."></textarea>
+        </div>
+  
+        <button type="submit" class="submit-btn">🚀 Add Question</button>
+      </form>
+    </div>
+  
+    <!-- Load Button -->
+    <button class="load-btn" (click)="load()">🔄 Load GTO Questions</button>
+  
+    <!-- Questions Table -->
+    <div class="question-table-container">
+      <table class="question-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>📜 Code Snippet</th>
+            <th>🛠 Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let gto of gtos; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>
+              <pre class="code-snippet">{{ gto.code }}</pre>
+            </td>
+            <td>
+              <button class="delete-btn" (click)="delete(gto)">❌ Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

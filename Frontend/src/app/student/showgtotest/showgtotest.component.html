@@ -1,0 +1,55 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<div class="show-test-container">
+  <h1 class="heading">
+      <i class="fa fa-lightbulb"></i> Guess The Output (GTO) Tests
+  </h1>
+  
+  <p class="description">
+      <i class="fa fa-info-circle"></i> <strong>GTO tests</strong> are designed to challenge your logical thinking and coding expertise.
+      These tests present you with **real-world programming scenarios** where you must predict the correct output of given code snippets.
+      Sharpen your skills and **enhance problem-solving abilities** by attempting these tests.
+  </p>
+
+  <div class="info-box">
+      <h3><i class="fa fa-graduation-cap"></i> Why Take GTO Tests?</h3>
+      <ul>
+          <li><i class="fa fa-code"></i> Improves coding logic and debugging skills.</li>
+          <li><i class="fa fa-brain"></i> Enhances analytical thinking.</li>
+          <li><i class="fa fa-trophy"></i> Helps in competitive programming and job interviews.</li>
+      </ul>
+  </div>
+
+  <table class="test-table">
+      <thead>
+          <tr>
+              <th><i class="fa fa-sort-numeric-up"></i> SN</th>
+              <th><i class="fa fa-pen-square"></i> Name</th>
+              <th><i class="fa fa-layer-group"></i> Category</th>
+              <th><i class="fa fa-clock"></i> Start Time</th>
+              <th><i class="fa fa-stopwatch"></i> End Time</th>
+              <th><i class="fa fa-puzzle-piece"></i> Questions</th>
+              <th><i class="fa fa-check-circle"></i> Passing Score</th>
+              <th><i class="fa fa-play-circle"></i> Attempt</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let obj of tests; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ obj.name }}</td>
+              <td>{{ obj.category }}</td>
+              <td>{{ obj.start | date: 'short' }}</td>
+              <td>{{ obj.end | date: 'short' }}</td>
+              <td>{{ obj.questionCount }}</td>
+              <td><span class="passing-score">{{ obj.passingCount }}</span></td>
+              <td>
+                  <button class="attempt-btn" (click)="attempt(obj)">
+                      <i class="fa fa-rocket"></i> Attempt Now
+                  </button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

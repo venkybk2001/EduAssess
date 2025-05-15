@@ -1,0 +1,84 @@
+<div class="video-container p-6 bg-white rounded-2xl shadow-xl max-w-7xl mx-auto mt-6 space-y-6">
+
+  <!-- Section Title -->
+  <h2 class="text-3xl font-bold text-gray-800 flex items-center gap-2">
+    🎬 Video Sessions
+  </h2>
+
+  <!-- Info Section -->
+  <div class="bg-blue-50 border border-blue-200 p-4 rounded-lg text-blue-800 space-y-2">
+    <h4 class="text-lg font-semibold">🎥 Welcome, Student!</h4>
+    <p>👁️ View videos instantly in the embedded player.</p>
+    <p>✅ You can also mark videos as watched and track your progress.</p>
+  </div>
+
+  <!-- Search -->
+  <input type="text" [(ngModel)]="searchText" placeholder="🔍 Search video..."
+    class="border px-4 py-2 w-full rounded-md shadow-sm" />
+
+  <!-- Load Videos Button -->
+  <div class="flex justify-end">
+    <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300"
+      (click)="load()">
+      🔄 Load Videos
+    </button>
+  </div>
+
+  <!-- Video List Table -->
+  <div class="overflow-x-auto">
+    <table class="w-full text-left border border-gray-200 rounded-lg shadow-sm">
+      <thead class="bg-gray-100 text-gray-700 font-semibold">
+        <tr>
+          <th class="py-3 px-4 border-b">📌 SN</th>
+          <th class="py-3 px-4 border-b">🎞️ Thumbnail</th>
+          <th class="py-3 px-4 border-b">📹 Name</th>
+          <th class="py-3 px-4 border-b">📝 Description</th>
+          <th class="py-3 px-4 border-b">✅ Watched</th>
+          <th class="py-3 px-4 border-b">👁️ Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let obj of filteredVideos(); let i = index" class="hover:bg-gray-50 transition-all">
+          <td class="py-3 px-4 border-b">{{ i + 1 }}</td>
+          <td class="py-3 px-4 border-b">
+            <img *ngIf="getThumbnail(obj.sessionLink)" [src]="getThumbnail(obj.sessionLink)" alt="thumb"
+              class="w-24 h-14 object-cover rounded" />
+          </td>
+          <td class="py-3 px-4 border-b">{{ obj.sessionName }}</td>
+          <td class="py-3 px-4 border-b">{{ obj.sessionDescription || 'No description available' }}</td>
+          <td class="py-3 px-4 border-b">
+            <input type="checkbox" [checked]="isWatched(obj.sessionLink)" (change)="toggleWatched(obj.sessionLink)" />
+          </td>
+          <td class="py-3 px-4 border-b">
+            <button class="bg-green-500 hover:bg-green-600 text-white py-1 px-3 rounded-md text-sm"
+              (click)="view(obj)">
+              👁️ View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Video Preview Section -->
+  <div *ngIf="videoUrl" class="bg-gray-100 p-6 rounded-xl shadow-md space-y-4 video-preview">
+    <h5 class="text-xl font-semibold text-gray-800">🎥 Video Preview</h5>
+    <p class="text-gray-700"><strong>📝 Description:</strong> {{ selectedVideoDescription }}</p>
+
+    <!-- YouTube Video -->
+    <iframe *ngIf="isYouTube" [src]="videoUrl" class="w-full h-96 rounded-lg shadow-sm" frameborder="0"
+      allowfullscreen></iframe>
+
+    <!-- MP4 Video -->
+    <video *ngIf="!isYouTube" class="w-full h-96 rounded-lg" controls>
+      <source [attr.src]="videoUrl" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="text-right">
+      <button class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg" (click)="resetVideo()">❌ Close
+        Video</button>
+    </div>
+  </div>
+
+</div>

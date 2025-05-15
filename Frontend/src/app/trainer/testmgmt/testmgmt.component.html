@@ -1,0 +1,80 @@
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<div class="main-container">
+    <!-- Left Content (Main Section) -->
+    <div class="left-content">
+        
+        <!-- Add New Test Form (Placed at the Top) -->
+        <div class="add-new-test">
+            <h2><i class="fas fa-plus-circle"></i> Add New Test</h2>
+            <form (ngSubmit)="add()">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" [(ngModel)]="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" [(ngModel)]="category" name="category" required>
+                        <option value="" disabled>Select a category</option>
+                        <option value="MCQ">MCQ</option>
+                        <option value="GTO">GTO</option>
+                        <option value="WRITTEN">WRITTEN</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="start">Start:</label>
+                    <input type="datetime-local" id="start" [(ngModel)]="start" name="start" required>
+                </div>
+                <div class="form-group">
+                    <label for="end">End:</label>
+                    <input type="datetime-local" id="end" [(ngModel)]="end" name="end" required>
+                </div>
+                <div class="form-group">
+                    <label for="questionCount">Question Count:</label>
+                    <input type="number" id="questionCount" [(ngModel)]="questionCount" name="questionCount" required>
+                </div>
+                <div class="form-group">
+                    <label for="passingCount">Passing Count:</label>
+                    <input type="number" id="passingCount" [(ngModel)]="passingCount" name="passingCount" required>
+                </div>
+                <button class="add-btn" type="submit" [disabled]="!name || !start || !end || !questionCount || !passingCount">
+                    <i class="fas fa-check"></i> Add Test
+                </button>
+            </form>
+        </div>
+
+        <!-- Table Section -->
+        <h2><i class="fas fa-cogs"></i> Test Management</h2>
+        <button class="load-btn" (click)="load()"><i class="fas fa-sync-alt"></i> Load</button>
+
+        <div class="table-wrapper">
+            <table class="test-table">
+                <thead>
+                    <tr>
+                        <th>SN</th>
+                        <th>Name</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Question Count</th>
+                        <th>Passing Count</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let obj of tests; let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{obj.name}}</td>
+                        <td>{{obj.start}}</td>
+                        <td>{{obj.end}}</td>
+                        <td>{{obj.questionCount}}</td>
+                        <td>{{obj.passingCount}}</td>
+                        <td>{{obj.result}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

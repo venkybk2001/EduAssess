@@ -1,0 +1,59 @@
+/* Button Group Styling */
+.category-btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Category Buttons */
+.category-btn {
+    background-color: #4e73df;
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-size: 1.1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px; /* Increased margin-top for a slightly lower default position */
+}
+
+/* Category Buttons Hover Effect */
+.category-btn:hover {
+    background-color: #2e59d9;
+    transform: translateY(4px); /* Slightly lower on hover */
+}
+
+/* Tooltip Styling */
+.tooltip {
+    display: none;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    white-space: nowrap;
+}
+
+.category-btn:hover .tooltip {
+    display: block;
+}
+
+/* Heading Icons */
+h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

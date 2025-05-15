@@ -1,0 +1,54 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<div class="show-test-container">
+  <h1 class="heading">
+      <i class="fa fa-question-circle"></i> Multiple-Choice Questions (MCQ) Tests
+  </h1>
+  
+  <p class="description">
+      <i class="fa fa-info-circle"></i> <strong>MCQ tests</strong> assess your knowledge through multiple-choice questions where you select the best answer from given options.
+      These tests help **enhance problem-solving skills**, **improve accuracy**, and **prepare for exams** effectively.
+  </p>
+
+  <div class="info-box">
+      <h3><i class="fa fa-book-open"></i> Why Take MCQ Tests?</h3>
+      <ul>
+          <li><i class="fa fa-lightbulb"></i> Tests understanding of key concepts.</li>
+          <li><i class="fa fa-clock"></i> Helps in time management for competitive exams.</li>
+          <li><i class="fa fa-chart-line"></i> Strengthens analytical and logical thinking.</li>
+      </ul>
+  </div>
+
+  <table class="test-table">
+      <thead>
+          <tr>
+              <th><i class="fa fa-sort-numeric-up"></i> SN</th>
+              <th><i class="fa fa-file-alt"></i> Test Name</th>
+              <th><i class="fa fa-layer-group"></i> Category</th>
+              <th><i class="fa fa-clock"></i> Start Time</th>
+              <th><i class="fa fa-stopwatch"></i> End Time</th>
+              <th><i class="fa fa-question"></i> No. of Questions</th>
+              <th><i class="fa fa-star"></i> Passing Score</th>
+              <th><i class="fa fa-play-circle"></i> Attempt</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let obj of tests; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ obj.name }}</td>
+              <td>{{ obj.category }}</td>
+              <td>{{ obj.start | date: 'short' }}</td>
+              <td>{{ obj.end | date: 'short' }}</td>
+              <td>{{ obj.questionCount }}</td>
+              <td><span class="passing-score">{{ obj.passingCount }}</span></td>
+              <td>
+                  <button class="attempt-btn" (click)="attempt(obj)">
+                      <i class="fa fa-rocket"></i> Start Test
+                  </button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

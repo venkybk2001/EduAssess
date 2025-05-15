@@ -1,0 +1,208 @@
+/* ========== Stylish Question Box ========== */
+.question-box {
+    background: linear-gradient(135deg, #f4f4f4, #e8f0fe);
+    padding: 12px;
+    border-radius: 8px;
+    font-family: "Courier New", monospace;
+    font-size: 1.1em;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-left: 6px solid #007bff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.question-box:hover {
+    transform: scale(1.02);
+}
+
+/* ========== No Question Selected Alert ========== */
+.no-question {
+    font-size: 1.3em;
+    color: #721c24;
+    background: linear-gradient(135deg, #f8d7da, #ffdde1);
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    border-left: 6px solid #dc3545;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== Submit Button ========== */
+.submit-btn {
+    background: linear-gradient(135deg, #17a2b8, #0d6efd);
+    color: #fff;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-transform: uppercase;
+    box-shadow: 3px 3px 10px rgba(23, 162, 184, 0.4);
+}
+
+.submit-btn i {
+    font-size: 1.2em;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #138496, #0056b3);
+    box-shadow: 5px 5px 15px rgba(23, 162, 184, 0.6);
+    transform: scale(1.05);
+}
+
+/* ========== Back Button ========== */
+.back-btn {
+    background: linear-gradient(135deg, #ff7b00, #ff4500);
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-transform: uppercase;
+    box-shadow: 3px 3px 10px rgba(255, 87, 34, 0.4);
+}
+
+.back-btn:hover {
+    background: linear-gradient(135deg, #cc3700, #b71c1c);
+    box-shadow: 5px 5px 15px rgba(255, 87, 34, 0.6);
+    transform: scale(1.05);
+}
+
+/* ========== Table Styling ========== */
+.main-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.main-table th {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    padding: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.main-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-size: 1em;
+}
+
+.main-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.main-table tbody tr:hover {
+    background-color: #e3f2fd;
+    transition: background 0.3s ease-in-out;
+}
+
+/* ========== Load Button ========== */
+.load-btn {
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.load-btn:hover {
+    background: linear-gradient(135deg, #218838, #1e7e34);
+    box-shadow: 2px 2px 10px rgba(40, 167, 69, 0.4);
+    transform: scale(1.05);
+}
+
+/* ========== Submitted Status ========== */
+.submitted {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #28a745;
+    background: #e9f7ef;
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ========== Table Layout Styling ========== */
+table.main-table {
+    margin: 0 auto;
+    width: 80%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table.nested-table {
+    width: 100%;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+table.nested-table th,
+table.nested-table td {
+    padding: 12px;
+    text-align: center;
+}
+
+table.nested-table th {
+    background: #007bff;
+    color: white;
+}
+
+table.nested-table td {
+    border-top: 1px solid #ddd;
+}
+
+/* ========== Answer Writing Section Alignment ========== */
+.question-section {
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    padding: 15px;
+}
+
+textarea {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}

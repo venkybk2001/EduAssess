@@ -1,0 +1,56 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<div class="show-test-container">
+  <h1 class="heading">
+    <i class="fa fa-clipboard-list"></i> Available Written Tests
+  </h1>
+
+  <!-- Information Section -->
+  <p class="description">
+    <i class="fa fa-info-circle"></i> Welcome! Below is the list of written tests assigned to you.
+    These are designed to assess your knowledge, analytical thinking, and writing ability.
+  </p>
+
+  <!-- Instruction Section -->
+  <p class="instructions">
+    <i class="fa fa-lightbulb"></i> <strong>Instructions:</strong><br>
+    <i class="fa fa-arrow-right"></i> Click on <strong><i class="fa fa-rocket"></i> Attempt</strong> to start a test.<br>
+    <i class="fa fa-arrow-right"></i> Answer all questions with at least <strong>400 characters</strong> to enable submission. <br>
+    <i class="fa fa-arrow-right"></i> Make sure to submit before the <strong><i class="fa fa-clock"></i> End Time</strong> of the test.<br>
+    <i class="fa fa-check-circle"></i> You can track your attempt status and scores after submission.
+  </p>
+
+  <!-- Test Table -->
+  <table class="test-table">
+    <thead>
+      <tr>
+        <th><i class="fa fa-hashtag"></i> SN</th>
+        <th><i class="fa fa-file-signature"></i> Test Name</th>
+        <th><i class="fa fa-layer-group"></i> Category</th>
+        <th><i class="fa fa-hourglass-start"></i> Start Time</th>
+        <th><i class="fa fa-hourglass-end"></i> End Time</th>
+        <th><i class="fa fa-question-circle"></i> Total Questions</th>
+        <th><i class="fa fa-trophy"></i> Passing Marks</th>
+        <th><i class="fa fa-play-circle"></i> Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let obj of tests; let i = index">
+        <td><i class="fa fa-arrow-right"></i> {{ i + 1 }}</td>
+        <td><i class="fa fa-file-alt"></i> {{ obj.name }}</td>
+        <td><i class="fa fa-tags"></i> {{ obj.category }}</td>
+        <td><i class="fa fa-clock"></i> {{ obj.start | date:'medium' }}</td>
+        <td><i class="fa fa-clock"></i> {{ obj.end | date:'medium' }}</td>
+        <td><i class="fa fa-list-ol"></i> {{ obj.questionCount }}</td>
+        <td><i class="fa fa-star"></i> {{ obj.passingCount }}</td>
+        <td>
+          <button class="attempt-btn" (click)="attempt(obj)">
+            <i class="fa fa-rocket"></i> Attempt
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

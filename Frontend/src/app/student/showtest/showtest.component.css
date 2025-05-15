@@ -1,0 +1,134 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #e3f2fd, #ffffff);
+  margin: 0;
+  padding: 0;
+}
+
+.show-test-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 30px 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #2196f3;
+}
+
+.heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0d47a1;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.heading i {
+  margin-right: 10px;
+  color: #2196f3;
+}
+
+.description {
+  font-size: 15px;
+  color: #444;
+  background-color: #e3f2fd;
+  padding: 15px 20px;
+  border-left: 4px solid #2196f3;
+  border-radius: 6px;
+  margin-bottom: 30px;
+}
+
+.description i {
+  margin-right: 8px;
+  color: #1976d2;
+}
+
+.test-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fafafa;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.test-table th,
+.test-table td {
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+}
+
+.test-table thead {
+  background-color: #1976d2;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.test-table thead th i {
+  margin-right: 6px;
+}
+
+.test-table tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s ease;
+}
+
+.test-table tbody tr:hover {
+  background-color: #f1f8ff;
+}
+
+.attempt-btn {
+  background-color: #43a047;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.attempt-btn i {
+  margin-right: 5px;
+}
+
+.attempt-btn:hover {
+  background-color: #388e3c;
+}
+
+@media (max-width: 768px) {
+  .test-table thead {
+    display: none;
+  }
+
+  .test-table, .test-table tbody, .test-table tr, .test-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .test-table tr {
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+
+  .test-table td {
+    text-align: right;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .test-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    font-weight: bold;
+    color: #333;
+  }
+}

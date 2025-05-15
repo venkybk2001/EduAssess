@@ -1,0 +1,32 @@
+<button class="load-btn" (click)="loadStudents()"><i class="fa fa-sync"></i> Load Student List</button>
+
+<table class="question-table">
+    <thead>
+        <tr>
+            <th>SN</th>
+            <th>Student Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{student.name}}</td>
+            <td>
+                <button class="delete-btn" (click)="delete(student)">
+                    <i class="fa fa-trash"></i> Delete
+                </button>
+                
+                <button class="delete-btn" *ngIf="student.activeStatus === 0" (click)="toggleStatus(student)">
+                    <i class="fa fa-power-off"></i> Activate
+                </button>
+                
+                <button class="delete-btn" *ngIf="student.activeStatus === 1" (click)="toggleStatus(student)">
+                    <i class="fa fa-power-off"></i> Deactivate
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+

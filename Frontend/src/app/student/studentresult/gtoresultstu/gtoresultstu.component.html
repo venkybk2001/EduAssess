@@ -1,0 +1,38 @@
+<!-- Display message when no results are available -->
+<div *ngIf="results.length === 0" class="no-results">
+    <i class="fas fa-exclamation-triangle"></i> No results available
+</div>
+
+<!-- Results Table -->
+<table *ngIf="results.length > 0" class="result-table">
+    <thead>
+        <tr>
+            <th><i class="fas fa-id-badge"></i> Test ID</th>
+            <th><i class="fas fa-file-signature"></i> Name</th>
+            <th><i class="fas fa-user"></i> User Name</th>
+            <th><i class="fas fa-user-graduate"></i> Student Name</th> <!-- Added student name -->
+            <th><i class="fas fa-calendar-alt"></i> Test Date</th> <!-- Added test date -->
+            <th><i class="fas fa-star"></i> Obtain Marks</th>
+            <th><i class="fas fa-list-ol"></i> Out of Marks</th>
+            <th><i class="fas fa-poll"></i> Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let result of results">
+            <td>{{ result.id }}</td>
+            <td>{{ result.name }}</td>
+            <td>{{ result.userName }}</td>
+            <td>{{ result.studentName }}</td> <!-- Display student name -->
+            <td>{{ result.testDate | date:'shortDate' }}</td> <!-- Format test date -->
+            <td>{{ result.obtainMarks }}</td>
+            <td>{{ result.outOfMarks }}</td>    
+            <td>
+                <span [ngClass]="result.result === 1 ? 'pass-badge' : 'fail-badge'"
+                      [title]="result.result === 1 ? 'Congratulations! You passed' : 'Better luck next time'">
+                    <i [ngClass]="result.result === 1 ? 'fas fa-check-circle' : 'fas fa-times-circle'"></i>
+                    {{ result.result === 1 ? 'Pass' : 'Fail' }}
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,106 @@
+/* Button Styling */
+/* Button Styling */
+.load-btn {
+    background-color: #4e73df;
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-size: 1.1em;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px; /* Added margin-top to lower the button */
+}
+
+.load-btn:hover {
+    background-color: #2e59d9;
+    transform: translateY(-2px);
+}
+
+/* Table Styling */
+.question-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 1em;
+    text-align: left;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.question-table th, .question-table td {
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.question-table th {
+    background-color: #4e73df;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.question-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.question-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button Styling for Actions */
+.delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-right: 5px;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+/* Activate/Deactivate Button */
+.delete-btn:nth-child(2) {
+    background-color: #28a745;
+}
+
+.delete-btn:nth-child(2):hover {
+    background-color: #218838;
+}
+
+.delete-btn:nth-child(3) {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.delete-btn:nth-child(3):hover {
+    background-color: #e0a800;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .question-table th, .question-table td {
+        font-size: 0.9em;
+        padding: 12px;
+    }
+    
+    .delete-btn {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+}

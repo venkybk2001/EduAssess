@@ -1,0 +1,87 @@
+<div class="video-container">
+    <h2 class="title">🎬 Video Sessions</h2>
+
+    <!-- Trainer Information Section -->
+    <div class="info-box">
+        
+           <h4>🎥 Welcome, Trainer! This section allows you to upload, manage, and share video lessons with students.  
+            You can add recorded lectures, tutorials, or any educational content.  </h4> 
+            <br>
+            <p>
+            📌 How It Works:
+            <br>
+            ➕ Add a new video by entering a name and a valid YouTube/MP4 link. 
+            <br> 
+            👁️ View videos instantly in the embedded player.  
+            <br>
+             🗑️ Delete outdated or unnecessary videos.  
+            <br>
+             ✅ Supports YouTube links.  
+        </p>
+    </div>
+
+    <!-- Video Upload Form -->
+    <form class="video-form" (ngSubmit)="add()">
+        <div class="form-group">
+            <label for="sessionName">📹 Video Name:</label>
+            <input type="text" id="sessionName" [(ngModel)]="sessionName" name="sessionName" required>
+        </div>
+        <div class="form-group">
+            <label for="sessionLink">🔗 Video Link:</label>
+            <input type="text" id="sessionLink" [(ngModel)]="sessionLink" name="sessionLink" required>
+        </div>
+        <div class="form-group">
+            <label for="sessionDescription">📝 Video Description:</label>
+            <textarea id="sessionDescription" [(ngModel)]="sessionDescription" name="sessionDescription" required></textarea>
+        </div>
+        <button class="btn btn-add" type="submit" [disabled]="!sessionLink || !sessionName || !sessionDescription">✅ Add Video</button>
+    </form>
+
+    <!-- Load Videos Button -->
+    <div class="button-group">
+        <button class="btn btn-load" (click)="load()">🔄 Load Videos</button>
+    </div>
+
+    <!-- Video List Table -->
+    <div class="table-wrapper">
+        <table class="test-table">
+            <thead>
+                <tr>
+                    <th>📌 SN</th>
+                    <th>📹 Video Name</th>
+                    <th>📝 Description</th>
+                    <th>👁️ Action</th>
+                    <th>🗑️ Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let obj of videosessions; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ obj.sessionName }}</td>
+                    <td>{{ obj.sessionDescription || 'No description available' }}</td>  <!-- Displaying Description -->
+                    <td>
+                        <button class="btn btn-view" (click)="view(obj)">👁️ View</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-delete" (click)="delete(obj)">🗑️ Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Video Preview Section -->
+    <div *ngIf="videoUrl" class="video-preview">
+        <h5>🎥 Video Preview</h5>
+        <p class="video-description"><strong>📝 Description:</strong> {{ selectedVideoDescription }}</p> <!-- Fix applied here -->
+
+        <iframe *ngIf="isYouTube" [src]="videoUrl" class="video-frame" frameborder="0" allowfullscreen></iframe>
+
+        <video *ngIf="!isYouTube" class="video-frame" controls>
+            <source [attr.src]="videoUrl" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <button class="btn btn-danger close-btn" (click)="resetVideo()">❌ Close Video</button>
+    </div>
+</div>

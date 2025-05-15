@@ -1,0 +1,50 @@
+<!-- index.html (inside <head>) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  
+  <div class="interface-container">
+      <div class="combined-box">
+          <!-- Welcome Section -->
+          <div class="welcome-section">
+              <h1><i class="fas fa-check-circle"></i> Welcome to EduAssess</h1>
+              <p><i class="fas fa-laptop"></i> Your go-to platform for managing and attempting written tests, MCQs, GTO, and video sessions.</p>
+              <p><i class="fas fa-thumbs-up"></i> All the best...!</p>
+              <button class="logout-btn" (click)="logout()"><i class="fas fa-sign-out-alt"></i> LogOut</button>
+          </div>
+  
+          <!-- Navigation Buttons -->
+          <div class="button-group">
+              <button class="nav-btn" (click)="changeSection(1)"><i class="fas fa-pencil-alt"></i> Written </button>
+              <button class="nav-btn" (click)="changeSection(2)"><i class="fas fa-list"></i> MCQ </button>
+              <button class="nav-btn" (click)="changeSection(3)"><i class="fas fa-brain"></i> GTO </button>
+              <button class="nav-btn" (click)="changeSection(4)"><i class="fas fa-video"></i> Video </button>
+              <button class="nav-btn" [disabled]="whatToShow === 6" (click)="changeSection(5)"><i class="fa fa-chart-line"></i> Results</button>
+          </div>
+  
+          <!-- Conditional Component Rendering -->
+          <div *ngIf="section === 1">
+              <app-showtest *ngIf="whatToShow === 1"></app-showtest>
+              <app-attempttest *ngIf="whatToShow === 2"></app-attempttest>
+          </div>
+  
+          <div *ngIf="section === 2">
+              <app-showmcqtest *ngIf="whatToShow === 3"></app-showmcqtest>
+              <app-attemptmcqtest *ngIf="whatToShow === 4"></app-attemptmcqtest>
+          </div>
+  
+          <div *ngIf="section === 3">
+              <app-showgtotest *ngIf="whatToShow === 5"></app-showgtotest>
+              <app-attemptgtotest *ngIf="whatToShow === 6"></app-attemptgtotest>
+          </div>
+  
+          <div *ngIf="section === 4">
+              <app-videosessions></app-videosessions>
+          </div>
+  
+          <div *ngIf="section === 5">
+              <app-studentresult></app-studentresult>
+          </div>
+      </div>
+  </div>
+  
+  

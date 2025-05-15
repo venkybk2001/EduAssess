@@ -1,0 +1,31 @@
+<!-- Category Selection Buttons -->
+<div class="category-btn-group">
+    <button class="category-btn" (click)="changeResultShow(1)">
+        <i class="fas fa-pencil-alt"></i> Written Test
+        <span class="tooltip">View Written Test Results</span>
+    </button>
+    <button class="category-btn" (click)="changeResultShow(2)">
+        <i class="fas fa-list-ul"></i> MCQ Test
+        <span class="tooltip">View MCQ Test Results</span>
+    </button>
+    <button class="category-btn" (click)="changeResultShow(3)">
+        <i class="fas fa-lightbulb"></i> GTO Test
+        <span class="tooltip">View GTO Test Results</span>
+    </button>
+</div>
+
+<!-- Display the corresponding result component -->
+<div *ngIf="showTabNo==1">
+    <h3><i class="fas fa-pencil-alt"></i> Written Test Results</h3>
+    <app-writtenresult></app-writtenresult>
+</div>
+
+<div *ngIf="showTabNo==2">
+    <h3><i class="fas fa-list-ul"></i> MCQ Test Results</h3>
+    <app-mcqresult></app-mcqresult>
+</div>
+
+<div *ngIf="showTabNo==3">
+    <h3><i class="fas fa-lightbulb"></i> GTO Test Results</h3>
+    <app-gtoresult></app-gtoresult>
+</div>

@@ -1,0 +1,11 @@
+<div class="container">
+    <h2>{{ sessionName }}</h2>
+  
+    <iframe
+      *ngIf="sessionLink" width="560" height="315" [src]="sessionLink | safeUrl" frameborder="0" allowfullscreen>
+    </iframe>
+  
+  
+    <button (click)="goBack()">⬅ Back</button>
+  </div>
+  

@@ -1,0 +1,115 @@
+/* General styling for the component */
+:host {
+    display: block;
+    margin: 20px;
+    padding: 10px;
+  }
+  
+  /* No results available message */
+  .no-results {
+    text-align: center;
+    font-size: 18px;
+    color: #ff4d4d;
+    margin-top: 20px;
+  }
+  
+  .no-results i {
+    margin-right: 10px;
+  }
+  
+  /* Table styling */
+  .result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .result-table th,
+  .result-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  .result-table th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .result-table td {
+    background-color: #f9f9f9;
+  }
+  
+  /* Styling for table rows on hover */
+  .result-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Icon styling for table headers */
+  .result-table th i {
+    margin-right: 8px;
+  }
+  
+  /* Pass and fail badge styling */
+  .pass-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 12px;
+    font-weight: bold;
+  }
+  
+  .fail-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 12px;
+    font-weight: bold;
+  }
+  
+  /* Tooltip styling */
+  .pass-badge, .fail-badge {
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .pass-badge:hover {
+    background-color: #45a049;
+  }
+  
+  .fail-badge:hover {
+    background-color: #e53935;
+  }
+  
+  i.fas {
+    margin-right: 5px;
+  }
+  
+  /* Styling for the student name column */
+  .result-table td:nth-child(4) {
+    font-weight: bold;
+  }
+  
+  /* Table Responsiveness for smaller screens */
+  @media screen and (max-width: 768px) {
+    .result-table {
+      font-size: 14px;
+    }
+  
+    .result-table th, .result-table td {
+      padding: 8px;
+    }
+  }
+  
+  /* Styling for the page title or header (if needed) */
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
