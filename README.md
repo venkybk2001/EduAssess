@@ -51,4 +51,21 @@
 - Import the provided `.sql` file (if available) to create tables
 
 ## 📁 Project Structure
+EduAssess/
+│
+├── backend/ # Spring Boot code
+├── frontend/ # AngularJS project
+├── database/ # SQL files (schema and seed data)
+└── README.md # Project documentation
 
+
+
+## 🧑‍💻 Author
+
+**Vyankatesh Manohar Bankwad**  
+- MCA, Anantrao Pawar College of Engineering and Research, Pune  
+- Contact: [LinkedIn/GitHub if you want to include]
+
+## 📃 License
+
+This project is for academic and educational purposes only.
